@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellnessBot - Mental Health Info</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #2C3E50; /* Modern Blue */
+            color: white;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        nav ul li a:hover {
+            color: #FFAA33; /* Orange Hover */
+        }
+
+        /* Main Content */
+        .content {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .content h1 {
+            color: #2C3E50;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .section h2 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .section img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 8px;
+            margin-top: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section ul {
+            list-style-type: disc;
+            margin-left: 2rem;
+            margin-top: 1rem;
+        }
+
+        .section ul li {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #2C3E50;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        footer a {
+            color: white;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            color: #FFAA33;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 1rem;
+            }
+
+            .content {
+                padding: 1.5rem;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+            }
+
+            .section ul li {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav .logo {
+                font-size: 1.7rem;
+            }
+
+            .content h1 {
+                font-size: 2.2rem;
+            }
+
+            .section h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">WellnessBot</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chatbot.html">Chatbot</a></li>
+            <li><a href="moodtracker.html">Mood Tracker</a></li>
+            <li><a href="emergency.html">Emergency Help</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+    <!-- Mental Health Info Section -->
+    <div class="content">
+        <h1>🧠 Mental Health Information</h1>
+
+        <!-- Causes of Mental Health Issues -->
+        <div class="section">
+            <h2>📌 Causes of Mental Health Issues</h2>
+            <ul>
+                <li>🔹 Trauma or abuse</li>
+                <li>🔹 Chronic stress from work or personal life</li>
+                <li>🔹 Substance abuse and addiction</li>
+                <li>🔹 Genetic predisposition</li>
+            </ul>
+            <img src="https://source.unsplash.com/800x400/?mental-health,stress" alt="Causes of Mental Health Issues">
+        </div>
+
+        <!-- Symptoms of Mental Health Issues -->
+        <div class="section">
+            <h2>📌 Symptoms of Mental Health Issues</h2>
+            <ul>
+                <li>🔹 Persistent sadness or mood swings</li>
+                <li>🔹 Difficulty concentrating or making decisions</li>
+                <li>🔹 Withdrawal from family and friends</li>
+                <li>🔹 Excessive anxiety or panic attacks</li>
+            </ul>
+            <img src="https://source.unsplash.com/800x400/?depression,anxiety" alt="Symptoms of Mental Health">
+        </div>
+
+        <!-- Solutions for Mental Health Issues -->
+        <div class="section">
+            <h2>📌 Solutions for Mental Health Issues</h2>
+            <ul>
+                <li>✅ Engaging in therapy or professional counseling</li>
+                <li>✅ Practicing mindfulness and meditation</li>
+                <li>✅ Staying physically active and maintaining a healthy diet</li>
+                <li>✅ Building a strong support system of family and friends</li>
+            </ul>
+            <img src="https://source.unsplash.com/800x400/?meditation,selfcare" alt="Mental Health Solutions">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 WellnessBot. All rights reserved. | <a href="/contact">Contact Us</a></p>
+    </footer>
+
+</body>
+</html>

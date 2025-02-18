@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Help - WellnessBot</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f8fa;
+            color: #333;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #2C3E50; /* Modern Blue */
+            color: white;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        nav ul li a:hover {
+            color: #FFAA33; /* Orange Hover */
+        }
+
+        /* Emergency Section */
+        .content {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .content h1 {
+            color: #2C3E50;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .emergency-list {
+            text-align: left;
+            padding: 1rem;
+        }
+
+        .emergency-list h2 {
+            font-size: 1.8rem;
+            color: #2C3E50;
+            margin-bottom: 1rem;
+        }
+
+        .emergency-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .emergency-list ul li {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .emergency-list ul li a {
+            color: #2C3E50;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .emergency-list ul li a:hover {
+            text-decoration: underline;
+            color: #FFAA33;
+        }
+
+        /* Add Emergency Contacts */
+        .add-contact {
+            margin-top: 2rem;
+        }
+
+        .add-contact h2 {
+            font-size: 1.8rem;
+            color: #2C3E50;
+            margin-bottom: 1rem;
+        }
+
+        .add-contact input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .add-contact button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2C3E50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .add-contact button:hover {
+            background-color: #1F2B3C;
+        }
+
+        /* Saved Contacts */
+        #savedContacts {
+            margin-top: 2rem;
+        }
+
+        #savedContacts h2 {
+            font-size: 1.8rem;
+            color: #2C3E50;
+            margin-bottom: 1rem;
+        }
+
+        #contactList {
+            list-style: none;
+            padding: 0;
+        }
+
+        #contactList li {
+            font-size: 1.2rem;
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .delete-btn {
+            background-color: #FF4D4D;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            background-color: #D63232;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .emergency-list h2, .add-contact h2, #savedContacts h2 {
+                font-size: 1.5rem;
+            }
+            .emergency-list ul li, #contactList li {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">WellnessBot</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chatbot.html">Chatbot</a></li>
+            <li><a href="moodtracker.html">Mood Tracker</a></li>
+            <li><a href="info.html"> Info</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Emergency Help Section -->
+    <div class="content">
+        <h1>🚨 Emergency Help</h1>
+        
+        <div class="emergency-list">
+            <h2>📞 Mental Health Helplines (India)</h2>
+            <ul>
+                <li>🇮🇳 <strong>KIRAN Helpline:</strong> <a href="tel:18005990019">1800-599-0019</a> (Available 24*7)</li>
+                <li>🇮🇳 <strong>Vandrevala Foundation:</strong> <a href="tel:9999666555">9999666555</a> (24*7 English & Hindi)</li>
+                <li>🇮🇳 <strong>Tele-MANAS:</strong> <a href="tel:14416">14416</a> (Govt of India, 2*7)</li>
+                <li>🇮🇳 <strong>Mpower Minds:</strong> <a href="tel:+918376804102">+91 8376804102</a> (247)</li>
+            </ul>
+        </div>
+
+        <!-- User Can Add Emergency Contacts -->
+        <div class="add-contact">
+            <h2>🏠 Add Your Trusted Contacts</h2>
+            <input type="text" id="contactName" placeholder="Name" required>
+            <input type="tel" id="contactNumber" placeholder="Phone Number" required>
+            <button onclick="addContact()">Add Contact</button>
+        </div>
+
+        <!-- Display Saved Contacts -->
+        <div id="savedContacts">
+            <h2>📋 Your Saved Contacts</h2>
+            <ul id="contactList"></ul>
+        </div>
+    </div>
+
+    <script>
+        function addContact() {
+            let name = document.getElementById("contactName").value;
+            let number = document.getElementById("contactNumber").value;
+
+            if (name && number) {
+                let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+                contacts.push({ name, number });
+                localStorage.setItem("contacts", JSON.stringify(contacts));
+                displayContacts();
+            }
+        }
+
+        function deleteContact(index) {
+            let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+            contacts.splice(index, 1);
+            localStorage.setItem("contacts", JSON.stringify(contacts));
+            displayContacts();
+        }
+
+        function displayContacts() {
+            let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+            let contactList = document.getElementById("contactList");
+            contactList.innerHTML = "";
+            contacts.forEach((contact, index) => {
+                contactList.innerHTML += `<li><strong>${contact.name}:</strong> <a href="tel:${contact.number}">${contact.number}</a>
+                <button class="delete-btn" onclick="deleteContact(${index})">Delete</button></li>`;
+            });
+        }
+
+        window.onload = displayContacts;
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellnessBot - Mental Health Companion</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #121010;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #2C3E50; /* Modern Blue */
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #FFAA33 !important; /* Orange Hover */
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(to bottom, #dfe6e9, #f5f8fa);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #2C3E50;
+        }
+
+        .hero h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero button {
+            padding: 0.8rem 2rem;
+            background-color: #FFAA33;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .hero button:hover {
+            background-color: #E69520;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #2C3E50;
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-box {
+            background-color: #f5f8fa;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon a {
+            font-size: 2.5rem;
+            color: #FFAA33;
+            margin-bottom: 1rem;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+
+        .feature-description {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #2C3E50;
+            color: white;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: white;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            color: #FFAA33;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .features h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero button {
+                font-size: 0.9rem;
+                padding: 0.6rem 1.5rem;
+            }
+
+            .features h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav .logo {
+                font-size: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .features h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="index.html">WellnessBot</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="chatbot.html">Chatbot</a></li>
+                <li class="nav-item"><a class="nav-link" href="moodtracker.html">Mood Tracker</a></li>
+                <li class="nav-item"><a class="nav-link" href="emergency.html">Helpline</a></li>
+                <li class="nav-item"><a class="nav-link" href="info.html">Info</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://aman7881.github.io/quiz/">Quiz</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to WellnessBot</h1>
+        <h3>Your Virtual Mental Health Companion</h3>
+        <p>Your personal AI-powered mental health assistant offering support, tools, and resources to improve your well-being.</p>
+        <button onclick="window.location.href='chatbot.html'">Try Our Chatbot</button>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Features of Our Platform</h2>
+        <div class="features-container">
+            <div class="feature-box">
+                <a href="chatbot.html" class="feature-icon">💬</a>
+                <h3 class="feature-title">AI Chatbot</h3>
+                <p class="feature-description">Chat with our empathetic AI-powered assistant for support and guidance on mental health concerns.</p>
+            </div>
+            <div class="feature-box">
+                <a href="moodtracker.html" class="feature-icon">📊</a>
+                <h3 class="feature-title">Mood Tracker</h3>
+                <p class="feature-description">Log your daily emotions and view trends to better understand your mental health journey.</p>
+            </div>
+            <div class="feature-box">
+                <a href="emergency.html" class="feature-icon">📞</a>
+                <h3 class="feature-title">Emergency Help</h3>
+                <p class="feature-description">Access helpline numbers for immediate assistance during mental health crises.</p>
+            </div>
+            <div class="feature-box">
+                <a href="info.html" class="feature-icon">📚</a>
+                <h3 class="feature-title">Mental Health Info</h3>
+                <p class="feature-description">Learn about causes, symptoms, and ways to improve mental well-being with trusted information.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 WellnessBot. All rights reserved. | <a href="/contact">Contact Us</a></p>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellnessBot AI Chatbot</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #161313;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #2C3E50; /* Modern Blue */
+            color: white;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        nav ul li a:hover {
+            color: #2C3E50; /* Orange Hover */
+        }
+
+        /* Chatbot Section */
+        .chatbot-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            padding: 2rem;
+        }
+
+        #chatbox {
+            width: 90%;
+            max-width: 800px;
+            height: 450px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #888 #f1f1f1;
+        }
+
+        #chatbox::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #chatbox::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        .message {
+            padding: 0.8rem;
+            border-radius: 10px;
+            max-width: 75%;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .message.user {
+            background-color: #3498DB;
+            color: white;
+            text-align: right;
+            align-self: flex-end;
+        }
+
+        .message.bot {
+            background-color: #EAEAEA;
+            color: #333;
+            text-align: left;
+            align-self: flex-start;
+        }
+
+        /* Input Area */
+        .input-area {
+            display: flex;
+            justify-content: center;
+            width: 90%;
+            max-width: 800px;
+            margin-top: 1rem;
+        }
+
+        .input-area input {
+            flex: 1;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+
+        .input-area button {
+            padding: 1rem;
+            background-color: #2C3E50;
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .input-area button:hover {
+            background-color: #2C3E50;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .chatbot-container {
+                padding: 1rem;
+                height: auto;
+            }
+
+            #chatbox {
+                height: 400px;
+            }
+
+            .input-area {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">WellnessBot</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="moodtracker.html">Mood Tracker</a></li>
+            <li><a href="emergency.html">Emergency Help</a></li>
+            <li><a href="info.html"> Info</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Chatbot Section -->
+    <section class="chatbot-container">
+        <h1>🤖 Talk to WellnessBot</h1>
+        <p>Your AI-powered mental health assistant</p>
+
+        <div id="chatbox">
+            <div class="message bot">Hello! How are you feeling today? 😊</div>
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="userInput" placeholder="Type your message here..." />
+            <button id="sendButton">Send</button>
+        </div>
+    </section>
+
+    <script>
+        const sendButton = document.getElementById("sendButton");
+        const userInput = document.getElementById("userInput");
+        const chatbox = document.getElementById("chatbox");
+
+        const responses = {
+            "hello": "Hi there! How can I assist you with your mental well-being today? 😊",
+            "how are you": "I'm just a bot, but I'm here to help! How are you feeling today?",
+            "i feel sad": "I'm sorry to hear that. Remember, it's okay to have tough days. Do you want some relaxation techniques?",
+            "thank you": "You're welcome! 💙 Remember, you're not alone. 😊",
+            "bye": "Goodbye! Take care and stay positive! 🌟"
+        };
+
+        sendButton.addEventListener("click", () => {
+            let userMessage = userInput.value.trim().toLowerCase();
+            if (userMessage === "") return;
+
+            // Display user message
+            let userDiv = document.createElement("div");
+            userDiv.className = "message user";
+            userDiv.textContent = userInput.value;
+            chatbox.appendChild(userDiv);
+
+            // Auto-scroll
+            chatbox.scrollTop = chatbox.scrollHeight;
+
+            // Generate bot response
+            let botReply = responses[userMessage] || "I'm here to listen. Tell me more about what’s on your mind. 💙";
+
+            setTimeout(() => {
+                let botDiv = document.createElement("div");
+                botDiv.className = "message bot";
+                botDiv.textContent = botReply;
+                chatbox.appendChild(botDiv);
+
+                // Auto-scroll
+                chatbox.scrollTop = chatbox.scrollHeight;
+            }, 800);
+
+            userInput.value = ""; // Clear input field
+        });
+    </script>
+
+</body>
+</html>

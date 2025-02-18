@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker - WellnessBot</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f8fa;
+            color: #333;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #2C3E50; /* Modern Blue */
+            color: white;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        nav ul li a:hover {
+            color: #FFAA33; /* Orange Hover */
+        }
+
+        /* Mood Tracker Section */
+        .tracker-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #2C3E50;
+        }
+
+        .mood-options {
+            display: flex;
+            justify-content: space-around;
+            margin: 1rem 0;
+        }
+
+        .mood-btn {
+            font-size: 2rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .mood-btn:hover {
+            transform: scale(1.2);
+        }
+
+        #mood-message {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        /* Mood History */
+        .history {
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .history ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .history li {
+            padding: 8px;
+            background: #f9f9f9;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .clear-btn {
+            margin-top: 1rem;
+            padding: 8px 12px;
+            border: none;
+            background-color: #FFAA33;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .clear-btn:hover {
+            background-color: #E69520;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">WellnessBot</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chatbot.html">Chatbot</a></li>
+            <li><a href="emergency.html">Emergency Help</a></li>
+            <li><a href="info.html">Mental Health Info</a></li>
+        </ul>
+    </nav>
+
+    <!-- Mood Tracker Section -->
+    <div class="tracker-container">
+        <h1>📊 Mood Tracker</h1>
+        <p>How are you feeling today? Select your mood:</p>
+
+        <div class="mood-options">
+            <button class="mood-btn" onclick="logMood('😊')">😊</button>
+            <button class="mood-btn" onclick="logMood('😐')">😐</button>
+            <button class="mood-btn" onclick="logMood('😔')">😔</button>
+            <button class="mood-btn" onclick="logMood('😢')">😢</button>
+            <button class="mood-btn" onclick="logMood('😡')">😡</button>
+        </div>
+
+        <p id="mood-message"></p>
+
+        <!-- Mood History -->
+        <div class="history">
+            <h2>📅 Your Mood History</h2>
+            <ul id="moodHistory"></ul>
+            <button class="clear-btn" onclick="clearHistory()">Clear History</button>
+        </div>
+    </div>
+
+    <script>
+        function logMood(mood) {
+            let moodMessage = document.getElementById("mood-message");
+            let suggestions = {
+                "😊": "Great! Keep doing what makes you happy!",
+                "😐": "Feeling neutral? Maybe try a new hobby or take a short walk.",
+                "😔": "It's okay to feel down sometimes. Try listening to music or journaling your thoughts.",
+                "😢": "I'm sorry you're feeling sad. Reach out to someone you trust or practice deep breathing.",
+                "😡": "Anger can be overwhelming. Try relaxation exercises like deep breathing or meditation."
+            };
+
+            moodMessage.textContent = suggestions[mood];
+
+            // Store mood in local storage
+            let moodHistory = JSON.parse(localStorage.getItem("moodHistory")) || [];
+            let today = new Date().toLocaleDateString();
+            moodHistory.push(`${today}: ${mood}`);
+            localStorage.setItem("moodHistory", JSON.stringify(moodHistory));
+
+            // Update mood history list
+            displayMoodHistory();
+        }
+
+        function displayMoodHistory() {
+            let moodHistory = JSON.parse(localStorage.getItem("moodHistory")) || [];
+            let moodHistoryList = document.getElementById("moodHistory");
+            moodHistoryList.innerHTML = "";
+
+            moodHistory.forEach(entry => {
+                let li = document.createElement("li");
+                li.textContent = entry;
+                moodHistoryList.appendChild(li);
+            });
+        }
+
+        function clearHistory() {
+            localStorage.removeItem("moodHistory");
+            displayMoodHistory();
+        }
+
+        // Display history on page load
+        displayMoodHistory();
+    </script>
+
+</body>
+</html>
